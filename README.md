@@ -14,7 +14,7 @@
 - 자동차 이름은 쉼표(`,`)로 구분되며, **5자 이하만 허용**한다.
 - 사용자는 자동차 이름과 시도할 횟수를 입력한다.
 - 게임 완료 후 **최종 우승자(들)** 의 이름을 출력한다.
-    - 우승자가 여러 명일 경우 쉼표(`,`)로 구분한다.
+  - 우승자가 여러 명일 경우 쉼표(`,`)로 구분한다.
 - 잘못된 입력값(`빈 값`, `이름 5자 초과`, `숫자 아님`)이 들어오면  
   `IllegalArgumentException`을 발생시키고 프로그램은 종료된다.
 
@@ -24,33 +24,67 @@
 - JDK 21 사용
 - 시작점: `Application.main()`
 - `camp.nextstep.edu.missionutils` 패키지의 API 사용
-    - `Randoms.pickNumberInRange(0,9)`
-    - `Console.readLine()`
+  - `Randoms.pickNumberInRange(0,9)`
+  - `Console.readLine()`
 - 외부 라이브러리 사용 금지
 - `System.exit()` 호출 금지
 - indent depth는 2까지 허용, 3 이상 금지
 - 3항 연산자 사용 금지
 - 메서드는 한 가지 일만 하도록 구현
 
-### 라이브러리
-- camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API를 사용하여 구현해야 한다.
-    - Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다.
-    - 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
-
 ---
-
 
 ## 🧩 구현 기능 목록
 
 ### 입력
-
-### 게임 실행
+- [ ] 자동차 이름을 쉼표(,)로 구분하여 입력받음
+- [ ] 시도할 횟수를 입력받음
+- [ ] 입력값이 유효하지 않으면 `IllegalArgumentException` 발생
 
 ### 출력
+- [ ] 각 라운드 결과 `"이름 : ----"` 출력
+- [ ] 최종 우승자 `"최종 우승자 : 이름"` 또는 `"최종 우승자 : 이름, 이름"` 출력
+
+### 게임 진행
+- [ ] 주어진 횟수 동안 모든 자동차는 전진 또는 정지
+- [ ] 각 라운드 결과를 저장
+- [ ] 최종 우승자를 계산
 
 ### 예외 처리
+- [ ] 시도 횟수가 숫자가 아니거나 0 이하인 경우
+- [ ] 이름이 중복되는 경우
+- [ ] 이름이 5자를 초과하는 경우
+- [ ] 이름이 공백이거나 비어 있는 경우
 
 ---
 
 ## 🧪 실행 예시
+```markdown
+경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
+pobi,woni,jun
+시도할 횟수는 몇 회인가요?
+5
 
+실행 결과
+pobi : -
+woni : 
+jun : -
+
+pobi : --
+woni : -
+jun : --
+
+pobi : ---
+woni : --
+jun : ---
+
+pobi : ----
+woni : ---
+jun : ----
+
+pobi : -----
+woni : ----
+jun : -----
+
+최종 우승자 : pobi, jun
+```
