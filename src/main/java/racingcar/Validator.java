@@ -6,9 +6,8 @@ import java.util.Set;
 
 public class Validator {
     public static void validateCarNames(String[] names) {
-        for (String name : names) {
+        for (String name : names)
             validateCarName(name);
-        }
         validateDuplicate(names);
     }
 
